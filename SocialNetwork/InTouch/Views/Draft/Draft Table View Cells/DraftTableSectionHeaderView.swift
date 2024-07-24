@@ -1,0 +1,39 @@
+//
+//  DraftTableSectionHeaderView.swift
+//  InTouch
+//
+//  Created by BK on 2024/06/19.
+//
+
+import UIKit
+
+class DraftTableSectionHeaderView: UITableViewHeaderFooterView {
+    static let identifier = "\(DraftTableSectionHeaderView.self)"
+
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .white
+        label.font = .regular(size: 14)
+        label.textColor = .ITBlack
+        return label
+    }()
+
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        setupLayout()
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupLayout() {
+        contentView.backgroundColor = .white
+        addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(16)
+            make.centerY.equalToSuperview()
+        }
+    }
+}
